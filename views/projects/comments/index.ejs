@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head') %>
+  <body>
+    <%- include('../../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <% post.comments.forEach((comment)=>{%>
+            
+          <div class="card mt-4">
+            <div class="card-body">
+              <div class="card-title">
+                <a href="/projects/<%=project._id%>"><%= comment.author.username %></a>
+              </div>
+              <div class="card-subtitle text-muted mb-2">
+                <%= comment.createdAt.toLocaleDateString() %>
+              </div>
+              <div class="card-text"><%= comment.text %></div>
+              <% if(post.author._id.equals(user._id)){ %><a class="btn btn-info"
+                >Edit Comment</a
+              >
+              <a class="btn btn-danger">Delete Comment</a>
+              <% } %>
+            </div>
+          </div>
+            <% })%>
+          </div>
+          <%- include('../../partials/sidebar') %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

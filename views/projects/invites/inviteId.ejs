@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head') %>
+  <body>
+    <%- include('../../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+            <%= invite.receiver.username %> <a href="/projects/<%= project._id%>/invites/users/<%=invite._id %>/delete"><button class="btn btn-danger"> Delete Invitation</button></a>
+          </div>
+          <%- include('../../partials/sidebar') %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <h1 class="page-heading">Connections</h1>
+          <%- include('../partials/requests_header') %> <%
+          requests.forEach((request)=>{ %>
+          <div class="card page-card">
+            <div class="card-body">
+              <div class="card-title card-heading">
+                <img
+                  class="thumbnail-img"
+                  src="../<%= request.sender.thumbnail %>"
+                  alt="<%= request.sender.username %>"
+                />
+                <h3 class="card-heading-inline">
+                  <%= request.sender.username %>
+                </h3>
+              </div>
+              <div class="card-text">Would like to connect.</div>
+              <a href="connectionRequests/<%= request.sender._id %>/accept"
+                ><button class="form-button">Accept</button></a
+              >
+              <a href="connectionRequests/<%= request.sender._id %>/decline"
+                ><button class="form-button">Decline</button></a
+              >
+            </div>
+          </div>
+          <% }) %> <% if(requests.length == 0){ %>
+          <h3 class="no-content">You currently have no Connection Requests.</h3>
+          <%} %>
+        </div>
+        <%- include('../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

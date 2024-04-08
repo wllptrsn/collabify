@@ -7,14 +7,6 @@ const fileSchema = new Schema(
       type: String,
       required: true,
     },
-    author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-    type: {
-      type: String,
-      required: true,
-    },
   },
   {
     timestamps: true,
@@ -35,6 +27,7 @@ const commentSchema = new Schema(
     timestamps: true,
   }
 );
+
 const postSchema = new Schema(
   {
     text: {
@@ -57,6 +50,7 @@ const projectSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+
     name: {
       type: String,
       required: true,
@@ -75,6 +69,7 @@ const projectSchema = new Schema(
       default: false,
     },
     posts: [postSchema],
+    members: ["User"],
   },
   {
     timestamps: true,

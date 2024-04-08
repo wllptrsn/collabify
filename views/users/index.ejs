@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <% userList.forEach((userInList)=>{%>
+            <div class="card page-card">
+              
+              <div class="card-title">
+                <h4><%= userInList.username %></h4>
+                <img
+                  src="<%= imagePath%>/<%= userInList.thumbnail %>"
+                  alt="<%= userInList.username %>"
+                  class="thumbnail-img-sm"
+                />
+              </div>
+
+              <div class="card-body">
+
+            <a href="/users/connect/<%=userInList._id %>"><button class="form-button">Connect with User</button></a>
+              </div>
+            </div>
+            <% })%>
+          </div>
+          <%- include('../partials/sidebar') %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

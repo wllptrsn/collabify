@@ -1,0 +1,25 @@
+<div id="post-modal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+    </div>
+    <form
+      class="post-form"
+      action="/projects/<%= project._id %>"
+      method="POST"
+      enctype="multipart/form-data"
+      multiple
+    >
+      <div class="formgroup">
+        <label for="text">Write Post</label>
+        <input type="textarea" name="text" placeholder="..." />
+      </div>
+      <div class="formgroup">
+        <label for="file" class="post-file-label">Add File</label>
+        <input type="file" name="file" value="..." />
+      </div>
+      <button class="form-button" type="submit">Post</button>
+    </form>
+  </div>
+</div>

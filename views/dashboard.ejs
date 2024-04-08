@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="container"><%- include('partials/header') %></div>
+    <div class="container page">
+      <%- include('partials/nav-modal') %>
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <h1 class="page-heading">Projects</h1>
+          <ul class="page-nav">
+            <li><a href="/projects/newProject">New Project</a></li>
+            <li><a href="/dashboard/explore">Explore Projects</a></li>
+            <li><a href="/dashboard/yourProjects">Your Projects</a></li>
+          </ul>
+
+          <% projects.forEach(project =>{ %>
+          <div class="card mt-4">
+            <div class="card-body page-card">
+              <div class="card-title card-heading">
+                <a href="/projects/<%=project._id%>"
+                  ><h3><%= project.name %></h3></a
+                >
+              </div>
+              <div class="card-title">
+                Created by <%= project.admin.username %>
+              </div>
+              <div class="card-subtitle text-muted mb-2">
+                <%= project.createdAt.toLocaleDateString() %>
+              </div>
+              <div class="card-text"><%= project.description %></div>
+              <a href="/projects/<%= project._id %>"
+                ><button class="form-button" type="button">
+                  View Project
+                </button></a
+              ><% if(project.admin._id.equals(user._id)){ %>
+              <a href="/projects/<%= project.id %>/edit"
+                ><button class="form-button" type="button">
+                  Edit Project
+                </button></a
+              >
+              <% } %>
+            </div>
+          </div>
+          <% }) %> <% if(projects.length == 0){ %>
+          <h3 class="no-content">
+            There are currently no projects to explore.
+          </h3>
+          <%} %>
+        </div>
+        <%- include('partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+  <%- include('partials/script') %>
+</html>

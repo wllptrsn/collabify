@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <form
+            action="/requests/projectInvitations/<%= project._id %>/decline"
+            method="POST"
+          >
+            Are you sure you want to decline this user's invitation?
+            <button type="submit" class="btn btn-danger">Decline</button>
+            <a href="/requests" class="btn btn-secondary">Cancel</a>
+          </form>
+        </div>
+        <%- include('../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

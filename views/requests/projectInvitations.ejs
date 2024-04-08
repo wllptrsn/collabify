@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <h1 class="page-heading">Project Invitations</h1>
+          <% invites.forEach((invite)=>{ %>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title card-heading">
+                <img
+                  class="thumbnail-img"
+                  src="<%= imagePath %>/<%= invite.sender.thumbnail %>"
+                  alt="<%= invite.sender.username %>"
+                />
+                Request From:
+                <h3 class="card-heading-inline">
+                  <%= invite.sender.username %>
+                </h3>
+                To join the Project:
+                <h3 class="card-heading-inline"><%= invite.project.name %></h3>
+              </div>
+              <form
+                action="/requests/projectInvitations/<%= invite.project._id %>/accept"
+                method="POST"
+              >
+                <div class="card-text">Join this project?</div>
+                <button type="submit" class="form-button">Accept</button>
+                <a
+                  href="/requests/projectInvitations/<%= invite.project._id %>/decline"
+                  ><button type="button" class="form-button">Decline</button></a
+                >
+              </form>
+            </div>
+          </div>
+          <% }) %> <% if(invites.length == 0){ %>
+          <h3 class="no-content">You currently have no Project Invitations.</h3>
+          <%} %>
+        </div>
+        <%- include('../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

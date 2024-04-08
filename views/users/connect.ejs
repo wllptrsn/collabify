@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <div class="card page-card">
+            <div class="card-title">
+              Send a connection to
+              <h4><%= userInList.username %></h4>
+              <img
+                src="<%= imagePath%>/<%= userInList.thumbnail %>"
+                alt="<%= userInList.username %>"
+                class="thumbnail-img-sm"
+              />
+            </div>
+            <div class="card-body">
+              <form action="/users/connect/<%=userInList._id %>" method="POST">
+                <button type="submit" class="form-button">Send Invite</button>
+                <a href="/users"
+                  ><button type="button" class="form-button">Cancel</button></a
+                >
+              </form>
+            </div>
+          </div>
+        </div>
+        <%- include('../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

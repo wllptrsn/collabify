@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head') %>
+  <body>
+    <%- include('../../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <form
+            action="/projects/<%= project._id %>/posts/<%=post._id %>/comments/<%= comment._id %>/edit"
+            method="POST"
+          >
+            <label for="text">Change your post</label>
+            <input
+              type="textarea"
+              name="text"
+              class="formgroup"
+              placeholder="<%= comment.text %>"
+            />
+            <button class="btn btn-primary" type="Submit">Save Changes</button>
+          </form>
+        </div>
+        <%- include('../../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

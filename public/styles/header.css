@@ -1,0 +1,36 @@
+@media only screen and (max-width: 768px) {
+  #sidebar ul li {
+    display: inline-block;
+    padding: 10px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .page {
+    margin-top: 70px;
+  }
+  #header-row {
+    max-width: 1400px;
+    margin: auto;
+    text-align: center;
+  }
+}
+#header-container {
+  position: fixed;
+  padding: 10px;
+  background-color: #f2f3f5;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 70px;
+  filter: drop-shadow(1px 1px 2px #98a9b3);
+  z-index: 1;
+}
+.header-nav-item a {
+  font-family: "Roboto Slab", serif;
+  color: #282828;
+  font-weight: 600;
+  text-decoration: none;
+}
+#nav-modal {
+  cursor: pointer;
+}

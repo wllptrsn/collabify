@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head') %>
+  <body>
+    <%- include('../../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <a href="/projects/<%= project._id %>"
+            ><h1><%= project.name %></h1></a
+          >
+          <% project.posts.forEach(post =>{ %>
+          <div class="card mt-4">
+            <div class="card-body">
+              <div class="card-title"><%= post.author.username %></div>
+              <div class="card-subtitle text-muted mb-2">
+                <%= post.createdAt.toLocaleDateString() %>
+              </div>
+              <div class="card-text"><%= post.text %></div>
+              <form
+                action="/projects/<%= project._id %>/posts/<%=post._id %>"
+                method="POST"
+              >
+                <input class="form-group" type="textarea" name="text" />
+                <button class="btn btn-primary" type="submit">Post</button>
+              </form>
+              <% if(post.comments.length == 1){ %>
+              <a
+                href="/projects/<%= project._id %>/posts/<%= post._id %>/comments"
+                ><%= post.comments.length %> Comment</a
+              ><% } else{%>
+              <a
+                href="/projects/<%= project._id %>/posts/<%= post._id %>/comments"
+                ><%= post.comments.length %> Comments</a
+              >
+              <% }%> <% if(post.author._id.equals(user._id)){ %><a
+                class="btn btn-info"
+                >Edit Post</a
+              >
+              <a class="btn btn-danger">Delete Post</a>
+              <% } %>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <%- include('../../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

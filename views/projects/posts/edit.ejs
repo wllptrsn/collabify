@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head') %>
+  <body>
+    <%- include('../../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <div class="back-button mt-4">
+            <a href="/projects/<%= project._id %>">
+              <i class="fa-regular fa-circle-left"></i>
+              <h2><%= project.name %></h2>
+            </a>
+          </div>
+          <ul class="page-nav">
+            <li><a href="/projects/newProject">New Project</a></li>
+            <li><a href="/dashboard/explore">Explore Projects</a></li>
+            <li><a href="/dashboard/yourProjects">Your Projects</a></li>
+          </ul>
+          <div class="card page-card">
+            <div class="card-title"><h4>Edit Post</h4></div>
+            <div class="card-body">
+              <form
+                action="/projects/<%= project._id %>/posts/<%=post._id %>/edit"
+                method="POST"
+                enctype="multipart/form-data"
+                multiple
+              >
+                <div class="formgroup">
+                  <label for="text">Edit Post</label>
+                  <input
+                    class="form-group post-form-textarea"
+                    type="textarea"
+                    name="text"
+                    class="formgroup"
+                    placeholder="<%= post.text %>"
+                  />
+                </div>
+                <div class="formgroup">
+                  <label for="file" class="post-file-label">Add File</label>
+                  <input type="file" name="file" value="..." />
+                </div>
+
+                <a href="/projects/<%= project._id %>">
+                  <button class="form-button" type="button">Cancel</button>
+                </a>
+                <button class="form-button" type="submit">Save Changes</button>
+              </form>
+
+              <div class="card inner-card">
+                <div class="post-card-title">
+                  <h4><%= post.author.username %></h4>
+                  <img
+                    src="../../../../<%= post.author.thumbnail %>"
+                    alt="<%= post.author.username %>"
+                    class="thumbnail-img-sm"
+                  />
+                </div>
+                <div class="post-card-subtitle">
+                  <%= post.createdAt.toDateString() %>
+                </div>
+                <p class="card-text post-text"></p>
+                <%= post.text %><% post.files.forEach((file)=> {%>
+                <div>
+                  <img
+                    class="post-image"
+                    src="../../../../<%= file.url %>"
+                    alt="<%= file.url %>"
+                  />
+                </div>
+                <%}) %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%- include('../../partials/script') %> <%-
+        include('../../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

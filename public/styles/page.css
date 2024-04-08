@@ -1,0 +1,57 @@
+html,
+body {
+  margin: auto;
+}
+
+.thumbnail-img {
+  height: 50px;
+  border-radius: 50%;
+}
+.thumbnail-img-sm {
+  height: 40px;
+  border-radius: 50%;
+}
+
+.vertical-nav {
+  line-height: 40px;
+  margin-top: 40px;
+  position: fixed;
+}
+.vertical-nav a {
+  text-decoration: none;
+  font-family: "Roboto Slab", serif;
+  color: #282828;
+  font-weight: 400;
+}
+.vertical-nav ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.page-nav {
+  font-family: "Red Hat Display", sans-serif;
+  padding-left: 0;
+}
+.page-nav li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 20px;
+}
+.page-nav a {
+  text-decoration: none;
+  color: #282828;
+}
+.back-button i {
+  color: #282828;
+  margin-right: 10px;
+  font-size: 18pt;
+}
+.back-button a {
+  text-decoration: none;
+}
+.back-button h2 {
+  display: inline;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  color: #282828;
+}

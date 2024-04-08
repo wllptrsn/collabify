@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="container"><%- include('../partials/header') %></div>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <div class="card page-card">
+            <div class="card-body">
+              <div class="card-title card-heading"><h3>Edit Project</h3></div>
+              <form action="/projects/<%= project._id %>/edit" method="POST">
+                <%- include('../partials/project_form') %>
+                <a href="/projects/<%= project._id%>"
+                  ><button type="button" class="form-button">Cancel</button></a
+                >
+                <button type="submit" class="form-button">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <%- include('../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

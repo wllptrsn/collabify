@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <body>
+    <div class="container"><%- include('../partials/header') %></div>
+    <div class="container page">
+      <%- include('../partials/nav-modal') %>
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <h1 class="page-heading">New Project</h1>
+          <ul class="page-nav">
+            <li><a href="/projects/newProject">New Project</a></li>
+            <li><a href="/dashboard/explore">Explore Projects</a></li>
+            <li><a href="/dashboard/yourProjects">Your Projects</a></li>
+          </ul>
+          <div class="card page-card">
+            <form action="/projects/newProject" method="POST">
+              <%- include('../partials/project_form') %>
+
+              <a href="/projects"
+                ><button type="button" class="form-button">Cancel</button></a
+              >
+              <button type="submit" class="form-button">Save</button>
+            </form>
+          </div>
+        </div>
+        <%- include('../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+  <%- include('../partials/script') %>
+</html>

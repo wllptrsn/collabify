@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <div class="container"><%- include('partials/header') %></div>
+    <div class="container page">
+      <%- include('partials/nav-modal') %>
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <h1 class="page-heading">Notifications</h1>
+
+          <%if(notifications.length != 0 ){ %>
+
+          <form
+            action="/notifications"
+            id="notification-form"
+            method="POST"
+            class="form-clear"
+          >
+            <button type="submit" class="form-button-clear">Clear</button>
+          </form>
+          <% notifications.reverse().forEach((notification) =>{ %>
+          <div class="card page-card">
+            <div class="card-body"></div>
+            <% if(notification.type === "post"){%>
+            <div class="card-title">
+              <h4><%= notification.sender.username %></h4>
+              <img
+                src="<%= imagePath %>/<%= notification.sender.thumbnail %>"
+                alt="<%= notification.sender.username %>"
+                class="thumbnail-img-sm"
+              />
+              posted in <%= notification.project.name %>
+            </div>
+            <div class="card-subtitle">
+              <%= notification.createdAt.toLocaleDateString() %>
+            </div>
+            <div class="card-text"><%= notification.content %></div>
+            <% if( notification.file){%>
+            <div class="post-image">
+              <img
+                src="<%= imagePath %>/<%= notification.file %>"
+                alt="<%= notification.file %>"
+                class="post-image"
+              />
+            </div>
+            <% } %>
+            <a href="/projects/<%= notification.project._id %>/posts"
+              >View in project</a
+            ><% } else{ %>
+            <div class="card-title">
+              <h4><%= notification.sender.username %></h4>
+              <img
+                src="<%= imagePath %>/<%= notification.sender.thumbnail %>"
+                alt="<%= notification.sender.username %>"
+                class="thumbnail-img-sm"
+              />
+              commented on a post in <%= notification.project.name %>
+            </div>
+            <div class="card-subtitle">
+              <%= notification.createdAt.toLocaleDateString() %>
+            </div>
+
+            <div class="card-text"><%= notification.content %></div>
+
+            <a href="/projects/<%= notification.project._id %>/posts"
+              >View in project</a
+            >
+            <% } %>
+          </div>
+          <% }) } else{%> No notifications to Display. <% } %>
+        </div>
+        <%- include('partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

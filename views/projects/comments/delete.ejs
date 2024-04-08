@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head') %>
+  <body>
+    <%- include('../../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <div class="card">
+            <div class="card-body">
+              Are you sure you want to permanently delete this comment?
+            </div>
+            <form
+              action="/projects/<%= project._id %>/posts/<%= post._id %>/comments/<%= comment._id %>/delete"
+              method="POST"
+            >
+              <a
+                href="/projects/<%= project._id %>/posts/<%= post._id %>/comments/<%= comment._id %>"
+                class="btn btn-secondary"
+                >Cancel</a
+              >
+              <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+          </div>
+      </div>
+      <%- include('../../partials/sidebar') %>
+    </div>
+  </body>
+</html>

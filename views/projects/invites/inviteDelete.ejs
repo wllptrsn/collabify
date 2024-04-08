@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../../partials/head') %>
+  <body>
+    <%- include('../../partials/header') %>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+            <form action="/projects/<%= project._id%>/invites/users/<%=invite._id %>/delete" method = "POST">
+                Are you sure you want to delete te invitation to <%= invite.receiver.username %>
+                <button class ="btn btn-danger" type="submit">Delete</button>
+                <a href="/projects/<%= project._id%>/invites"><span class="btn btn-secondary">Cancel</span></a>
+            </form>
+          </div>
+          <%- include('../../partials/sidebar') %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

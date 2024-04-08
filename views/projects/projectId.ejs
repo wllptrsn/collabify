@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <%- include('../partials/post-modal') %> <%-
+    include('../partials/nav-modal') %>
+    <div class="container"><%- include('../partials/header') %></div>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <h1 class="page-heading"><%= project.name %></h1>
+          <ul class="page-nav">
+            <li><a href="/projects/newProject">New Project</a></li>
+            <li><a href="/dashboard/explore">Explore Projects</a></li>
+            <li><a href="/dashboard/yourProjects">Your Projects</a></li>
+          </ul>
+          <div class="card page-card">
+            <div class="card-body">
+              <div class="card-title card-heading">
+                <% if(project.admin._id.equals(user._id)){ %>
+                <span class="heading-left">
+                  <a href="/projects/<%= project._id%>/delete" class="btn"
+                    >DELETE</a
+                  >
+                  <a href="/projects/<%= project._id%>/edit" class="btn"
+                    >EDIT</a
+                  >
+                  <a href="/projects/<%= project._id%>/invites" class="btn"
+                    >INVITE USERS</a
+                  >
+                </span>
+                <% } %>
+              </div>
+              <div class="card-subtitle">
+                Created by <%= project.admin.username %>
+                <br />
+                Active since: <%= project.createdAt.toDateString() %>
+              </div>
+
+              <p class="card-text"><%= project.description %></p>
+
+              <div class="post-section">
+                <button class="form-button" id="post-modal-trigger">
+                  Create Post
+                </button>
+                <a
+                  ><%if(project.posts.length ==1){%>
+                  <a href="/projects/<%= project._id %>/posts"
+                    ><%= project.posts.length%> Post</a
+                  >
+                  <%} else{%>
+                  <a href="/projects/<%= project._id %>/posts"
+                    ><%= project.posts.length%> Posts</a
+                  >
+                  <% }%>
+                </a>
+                <% project.posts.reverse().forEach((post)=>{%>
+                <div class="card post-card">
+                  <div class="post-card-title">
+                    <h4><%= post.author.username %></h4>
+                    <img
+                      src="<%= imagePath%>/<%= post.author.thumbnail %>"
+                      alt="<%= post.author.username %>"
+                      class="thumbnail-img-sm"
+                    />
+                  </div>
+                  <p class="card-text post-text"><%= post.text %></p>
+                  <% post.files.forEach((file)=> {%>
+                  <div>
+                    <img
+                      class="post-image"
+                      src="../<%= file.url %>"
+                      alt="<%= file.url %>"
+                    />
+                  </div>
+                  <%}) %>
+                  <a
+                    class="comments-length"
+                    href="/projects/<%= project._id %>/posts/<%= post._id %>"
+                    ><%= post.comments.length %> <% if(!post.comments.length ==
+                    1){ %> comments <% } else{ %> comment <% } %></a
+                  >
+                  <div class="post-footer">
+                    <a href="/projects/<%= project._id%>/posts/<%= post._id%>"
+                      ><button type="button" class="form-button">
+                        Comment
+                      </button></a
+                    ><% if(project.admin.equals(user) ||
+                    post.author.equals(user)){ %>
+                    <a
+                      href="/projects/<%= project._id%>/posts/<%= post._id%>/edit"
+                      ><button type="button" class="form-button">
+                        Edit
+                      </button></a
+                    >
+                    <a
+                      href="/projects/<%= project._id%>/posts/<%= post._id%>/delete"
+                      ><button type="button" class="form-button">
+                        Delete
+                      </button></a
+                    >
+                    <% } %>
+                  </div>
+                </div>
+                <%}) %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 order-1 order-md-2">
+          <%- include('../partials/sidebar') %>
+        </div>
+      </div>
+    </div>
+  </body>
+  <%- include('../partials/script') %>
+</html>

@@ -1,0 +1,25 @@
+<div class="row" id="header-container">
+  <div class="col-12">
+    <div class="row" id="header-row">
+      <div class="col-3 col-md-4 header-nav-item"><a href="/">Logo</a></div>
+      <div class="col-3 col-md-2 header-nav-item">
+        <a href="/requests">Requests</a>
+      </div>
+      <div class="col-3 col-md-2 header-nav-item">
+        <a href="/notifications">Notifications</a>
+      </div>
+      <div class="col-3 col-md-2 d-md-none" id="nav-modal">
+        <img
+          src="<%= imagePath %>/<%= user.thumbnail%>"
+          class="thumbnail-img"
+        />
+      </div>
+      <div class="col-3 col-md-2 d-none d-md-block">
+        <img
+          src="<%= imagePath %>/<%= user.thumbnail%>"
+          class="thumbnail-img"
+        />
+      </div>
+    </div>
+  </div>
+</div>

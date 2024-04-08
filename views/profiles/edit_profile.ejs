@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="container"><%- include('../partials/header') %></div>
+    <div class="container page">
+      <div class="row">
+        <div class="col-12 col-md-8 order-2 order-md-1">
+          <% if(user.url){ %>
+          <h2>Edit your profile information</h2>
+          <%} else{%>
+          <h2>Set up your profile</h2>
+          <%} %>
+          <form
+            action="/editProfile"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <% if(user.thumbnail){%>
+            <img src="<%= user.thumbnail%>" class="thumbnail-img" /> <%}%>
+            <div class="formgroup">
+              <% if(user.thumbnail){%><label for="file"
+                >Edit your Profile Image<%} else{ %> Choose your Profile
+                Image<%}%>
+              </label>
+              <input type="file" name="file" value="..." />
+            </div>
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="First Name"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="Last Name"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="username"
+                class="form-control"
+              />
+            </div>
+            <% if(user.url) {%><a href="/" class="btn btn-secondary">Cancel</a
+            ><%} %>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+        <%- include('../partials/sidebar') %>
+      </div>
+    </div>
+  </body>
+</html>

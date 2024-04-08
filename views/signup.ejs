@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="splash splash-logo row">Logo</div>
+      <div class="row">
+        <div class="col-12 card page-card splash splash-card row">
+          <div class="card-body">
+            <div class="card-title card-heading"><h3>Create Account</h3></div>
+
+            <form action="/signup" method="POST">
+              <form-group>
+                <label for="firstname">First Name</label>
+                <input
+                  required
+                  type="text"
+                  name="firstname"
+                  id="firstname"
+                  class="form-control"
+                  placeholder="Enter your First Name"
+              /></form-group>
+              <form-group>
+                <label for="lastname">Last Name</label>
+                <input
+                  required
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  class="form-control"
+                  placeholder="Enter your First Name"
+              /></form-group>
+              <form-group>
+                <label for="username">Username</label>
+                <input
+                  required
+                  type="text"
+                  name="username"
+                  id="username"
+                  class="form-control"
+                  placeholder="Pick a username"
+              /></form-group>
+              <form-group>
+                <label for="password">Password</label>
+                <input
+                  required
+                  type="text"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Password"
+              /></form-group>
+              <button type="submit" class="form-button">Create Account</button>
+            </form>
+            <div class="card-text">
+              Already have an account <a href="/login">Go to Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row splash">
+        <h4>Or Sign Up Using...</h4>
+      </div>
+      <div class="row splash">
+        <div class="col-2 splash-social-container card">
+          <a href="/auth/google" class="google-btn">
+            <span class="splash-social">
+              <i class="fa-brands fa-google-plus-g"></i><br />
+              Google+
+            </span>
+          </a>
+        </div>
+        <div class="col-2 splash-social-container card">
+          <a href="/auth/facebook" class="facebook-btn">
+            <span class="splash-social">
+              <i class="fa-brands fa-facebook"></i><br />
+              FaceBook
+            </span>
+          </a>
+        </div>
+        <div class="col-2 splash-social-container card">
+          <a href="/auth/linkedin" class="linkedin-btn">
+            <span class="splash-social">
+              <i class="fa-brands fa-linkedin"></i><br />
+              LinkedIn
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/9e99ae9326.js"
+    crossorigin="anonymous"
+  ></script>
+</html>

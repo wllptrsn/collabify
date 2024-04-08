@@ -1,0 +1,116 @@
+.card-heading a {
+  text-decoration: none;
+}
+.card-heading h3 {
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  color: #282828;
+}
+.card-subtitle {
+  font-family: "Red Hat Display", sans-serif;
+  font-style: italic;
+  font-size: 10pt;
+  color: #666666;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.project-card-heading {
+  display: inline;
+}
+.comments-length {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.card-heading-inline {
+  display: inline;
+  font-family: "Roboto Slab", serif;
+}
+.heading-left {
+  font-family: "Red Hat Display", sans-serif;
+  float: right;
+}
+.card-text {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.post-card {
+  margin-top: 10px;
+}
+.post-card-title {
+  margin: 10px;
+}
+.post-card-title h4,
+.card-title h4,
+.inline-username {
+  display: inline;
+}
+.post-form-textarea {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+.post-card-subtitle {
+  font-family: "Red Hat Display", sans-serif;
+  font-style: italic;
+  font-size: 10pt;
+  color: #666666;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.post-image {
+  height: 100px;
+  margin: 10px;
+}
+.post-text {
+  margin: 10px;
+}
+
+.post-file-label {
+  display: none;
+}
+post-file-label .post-form {
+  margin: 10px;
+}
+.post-footer {
+  margin: 10px;
+}
+.inner-card {
+  margin: 10px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+.form-text {
+  margin-bottom: 20px;
+}
+.form-button {
+  height: 30px;
+  width: 100px;
+  margin-top: 10px;
+  margin-right: 20px;
+  background-color: #282828;
+  color: white;
+}
+.form-button-clear {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  list-style-type: none;
+  display: inline-block;
+  font-family: "Red Hat Display", sans-serif;
+  padding-left: 0;
+}
+input[type="file"]::file-selector-button {
+  height: 30px;
+  width: 100px;
+  margin-top: 10px;
+  margin-right: 20px;
+  background-color: #282828;
+  color: white;
+}
