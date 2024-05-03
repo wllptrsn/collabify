@@ -31,6 +31,15 @@
   font-weight: 600;
   text-decoration: none;
 }
+.header-nav-item-logo a {
+  text-decoration: none;
+  color: #282828;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.2em;
+}
 #nav-modal {
   cursor: pointer;
 }

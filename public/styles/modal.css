@@ -1,7 +1,6 @@
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 13; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -16,6 +15,19 @@
   padding: 2px 16px;
 }
 
+.modal-nav {
+  line-height: 40px;
+}
+.modal-nav a {
+  text-decoration: none;
+  font-family: "Roboto Slab", serif;
+  color: #282828;
+  font-weight: 400;
+}
+.modal-nav ul {
+  list-style-type: none;
+  text-decoration: none;
+}
 /* Modal Body */
 .modal-body {
   padding: 2px 16px;

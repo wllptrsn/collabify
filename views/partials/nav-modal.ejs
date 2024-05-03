@@ -4,11 +4,13 @@
     <div class="modal-header">
       <span class="close">&times;</span>
     </div>
-    <div class="modal-body vertical-nav">
+    <div class="modal-body modal-nav">
       <ul>
-        <a href="/editProfile"><li>View profile</li></a>
+        <a href="/users"><li>Find Users</li></a>
+        <a href="/connections"
+          ><li><%= user.connections.length %> Connections</li></a
+        >
         <a href="/editProfile"><li>Edit profile</li></a>
-        <a href="/connections"><li>Connections</li></a>
         <a href="/logout"><li>Logout</li></a>
       </ul>
     </div>

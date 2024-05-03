@@ -2,8 +2,20 @@
   max-width: 600px;
   margin: auto;
 }
+
 .splash-logo {
+  color: #282828;
   height: 200px;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  position: relative;
+}
+.splash-logo h1 {
+  font-size: 3.2em;
+  position: absolute;
+  top: 50%;
 }
 .splash-card {
   margin-bottom: 20px;
